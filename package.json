@@ -6,7 +6,8 @@
     "start": "ng serve --open",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng deploy --repo https://github.com/JhersonHuacho/angular-musical-events --base-href /angular-musical-events/"
   },
   "private": true,
   "dependencies": {
