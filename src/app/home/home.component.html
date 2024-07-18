@@ -1,11 +1,12 @@
 <div class="home-container">
   <app-header></app-header>
+  <!-- <button (click)="testClick()">click aquí</button> -->
   <div class="content-container">
     <section class="filter">
       <mat-form-field>
         <mat-label>Género</mat-label>
         <mat-select>
-          <mat-option [value]="1">Rock</mat-option>
+          <mat-option [value]="genreTest.id">{{genreTest.name}}</mat-option>
           <mat-option [value]="2">Salsa</mat-option>
           <mat-option [value]="3">Bachata</mat-option>
         </mat-select>
@@ -15,6 +16,7 @@
       </span>
     </section>
     <section class="event-list">
+      <app-event-card [data]="concertTest"></app-event-card>
     </section>
   </div>
   <app-footer></app-footer>

@@ -5,7 +5,8 @@ import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
   {
-    path: 'home', component: HomeComponent
+    path: 'home',
+    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
   },
   {
     path: 'login', component: LoginComponent
