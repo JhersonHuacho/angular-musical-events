@@ -6,9 +6,15 @@
       <mat-form-field>
         <mat-label>Género</mat-label>
         <mat-select>
-          <mat-option *ngFor="let genre of genres" [value]="genre.id">
-            {{genre.name}}
-          </mat-option>
+          @for(genre of genres; track genre.id) {
+            <mat-option [value]="genre.id">
+              {{genre.name}}
+            </mat-option>
+          } @empty {
+            <mat-option>
+              No hay géneros disponibles
+            </mat-option>
+          }
         </mat-select>
       </mat-form-field>
       <span>
