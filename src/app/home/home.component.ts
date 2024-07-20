@@ -4,35 +4,47 @@ import { FooterComponent } from "../shared/components/footer/footer.component";
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { EventCardComponent } from "../shared/components/event-card/event-card.component";
-import { PruebaService } from "../prueba.service";
 import { HomeService } from "./home.service";
-import { Concert, emptyConcert } from "../shared/models/concert.model";
-import { emptyGenre, Genre } from "../shared/models/genre.model";
+import { Concert } from "../shared/models/concert.model";
+import { NgClass, NgFor, NgIf, NgSwitch } from "@angular/common";
+import { Genre } from "../shared/models/genre.model";
+
+const MODULES = [
+  MatSelectModule,
+  MatFormFieldModule
+]
+
+const COMPONENTS = [
+  HeaderComponent,
+  FooterComponent,
+  EventCardComponent
+]
+
+const DIRECTIVES = [
+  NgClass,
+  NgIf,
+  NgFor,
+  NgSwitch
+]
 
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [
-    HeaderComponent,
-    FooterComponent,
-    MatSelectModule,
-    MatFormFieldModule,
-    EventCardComponent
-  ],
+  imports: [ ...MODULES, ...COMPONENTS, ...DIRECTIVES ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
 
   homeService = inject(HomeService);
-  concertTest: Concert = emptyConcert;
-  genreTest: Genre = emptyGenre;
+  concerts: Concert[] = [];
+  genres: Genre[] = [];
 
   ngOnInit(): void {
     this.homeService.getData().subscribe((response) => {
       console.log(response);
-      this.concertTest = response.concerts[0];
-      this.genreTest = response.genres[0];
+      this.concerts = response.concerts;
+      this.genres = response.genres;
     });
   }
 
