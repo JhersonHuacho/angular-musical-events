@@ -16,7 +16,7 @@
       </span>
     </section>
     <section class="event-list">
-      <app-event-card *ngFor="let concert of concerts" [data]="concert">
+      <app-event-card *ngFor="let concert of concerts" [data]="concert" appHighlightable>
       </app-event-card>
     </section>
   </div>

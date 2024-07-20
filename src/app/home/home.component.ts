@@ -8,6 +8,7 @@ import { HomeService } from "./home.service";
 import { Concert } from "../shared/models/concert.model";
 import { NgClass, NgFor, NgIf, NgSwitch } from "@angular/common";
 import { Genre } from "../shared/models/genre.model";
+import { HighlightableDirective } from "../shared/directives/highlightable.directive";
 
 const MODULES = [
   MatSelectModule,
@@ -24,7 +25,8 @@ const DIRECTIVES = [
   NgClass,
   NgIf,
   NgFor,
-  NgSwitch
+  NgSwitch,
+  HighlightableDirective
 ]
 
 @Component({
