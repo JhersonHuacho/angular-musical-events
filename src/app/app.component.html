@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+ <h1>{{title | uppercase}}</h1>
+ <h2>{{age}}</h2>
+ <h2>{{age + 10}}</h2>
+ <h2>{{test()}}</h2>
+<h3>{{mayorDeEdad}}</h3>
+
+<div [class]-="classSeleccionado" (click)="testClick()">
+  test to see if the class is added
+</div>
+
+<h1>{{titleNgModel}}</h1>
+
+<input type="text" [(ngModel)]="titleNgModel" />
+
+<div>
+  {{ objetoGlobal | json }}
+</div>
