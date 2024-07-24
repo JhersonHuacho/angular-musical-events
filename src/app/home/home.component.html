@@ -6,7 +6,7 @@
       <mat-form-field>
         <mat-label>Género</mat-label>
         <mat-select>
-          @for(genre of genres; track genre.id) {
+          @for(genre of genres$ | async; track genre.id) {
             <mat-option [value]="genre.id">
               {{genre.name}}
             </mat-option>
@@ -22,7 +22,7 @@
       </span>
     </section>
     <section class="event-list">
-      <app-event-card *ngFor="let concert of concerts" [data]="concert" appHighlightable>
+      <app-event-card *ngFor="let concert of concerts$ | async" [data]="concert" appHighlightable>
       </app-event-card>
     </section>
   </div>
