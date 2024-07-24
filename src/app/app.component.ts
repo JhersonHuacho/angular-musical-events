@@ -1,5 +1,5 @@
 import { JsonPipe, UpperCasePipe } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { BehaviorSubject, fromEvent, Observable, Subscription } from 'rxjs';
@@ -17,7 +17,10 @@ import { BehaviorSubject, fromEvent, Observable, Subscription } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
-
+  titleWithSignal = signal("musical-events");
+  testFunctionSignal() {
+    this.titleWithSignal.set("musical-events dos");
+  }
   title = 'musical-events';
   age = 18;
   mayorDeEdad = false;
