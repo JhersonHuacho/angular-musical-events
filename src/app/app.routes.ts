@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { isNotLogged } from './app.guard';
 
 export const routes: Routes = [
   {
@@ -12,7 +13,8 @@ export const routes: Routes = [
   {
     path: 'login',
     pathMatch: 'full',
-    loadComponent: () => import('./login/login.component').then(m => m.LoginComponent)
+    loadComponent: () => import('./login/login.component').then(m => m.LoginComponent),
+    canActivate: [isNotLogged]
   },
   {
     path: 'register',

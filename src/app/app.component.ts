@@ -1,8 +1,9 @@
 import { JsonPipe, UpperCasePipe } from '@angular/common';
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { BehaviorSubject, fromEvent, Observable, Subscription } from 'rxjs';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -41,6 +42,11 @@ export class AppComponent implements OnInit, OnDestroy {
   observable$ = new Observable();
   suscription = new Subscription();
   bsubject = new BehaviorSubject(0);
+
+  constructor() {
+    const authService = inject(AuthService);
+    authService.verifyLocalStorage();
+  }
 
   ngOnInit(): void {
     // this.observable$.subscribe(() => {
