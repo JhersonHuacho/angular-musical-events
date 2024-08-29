@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { BehaviorSubject, fromEvent, Observable, Subscription } from 'rxjs';
 import { AuthService } from './shared/services/auth.service';
+import { Options, SimpleNotificationsModule } from 'angular2-notifications';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,21 @@ import { AuthService } from './shared/services/auth.service';
     RouterOutlet,
     FormsModule,
     UpperCasePipe,
-    JsonPipe
+    JsonPipe,
+    SimpleNotificationsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+  notificationOptions: Options = {
+    position: ['top', 'right'],
+    timeOut: 3000,
+  };
+
+  // -----
+
   titleWithSignal = signal("musical-events");
   testFunctionSignal() {
     this.titleWithSignal.set("musical-events dos");

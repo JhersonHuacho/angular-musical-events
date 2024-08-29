@@ -1,1 +1,66 @@
-<p>login works!</p>
+<div class="main-container">
+  <app-simple-header></app-simple-header>
+
+  <div class="title-container">
+    <div class="title-sub-container">
+      <span class="title">Ingresa a Musical Events para comprar</span>
+    </div>
+  </div>
+
+  <div class="content-container">
+    <div class="content-sub-container">
+      <div class="card-container box-shadow">
+        <div class="form-container">
+          <span class="title"> INICIO DE SESIÓN </span>
+          <form [formGroup]="loginForm">
+            <mat-form-field class="email" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="email" />
+              @if (loginForm.controls.email.hasError('email') &&
+              !loginForm.controls.email.hasError('required')) {
+              <mat-error>Ingresa un email válido</mat-error>
+              } @if (loginForm.controls.email.hasError('required')) {
+              <mat-error>Email es <strong>requerido</strong></mat-error>
+              }
+            </mat-form-field>
+            <mat-form-field class="password" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input
+                type="password"
+                matInput
+                [formControl]="loginForm.controls.password"
+              />
+              @if (loginForm.controls.password.hasError('minlength') &&
+              !loginForm.controls.password.hasError('required')) {
+              <mat-error class="min-length-error"
+                >Contraseña debe tener al menos 8 dígitos</mat-error
+              >
+              } @if (loginForm.controls.password.hasError('required')) {
+              <mat-error>Contraseña es <strong>requerida</strong></mat-error>
+              }
+            </mat-form-field>
+            <div class="forgot-password">
+              <a routerLink="/forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="loginForm.invalid"
+              (click)="login()"
+            >
+              INGRESAR
+            </button>
+            <div class="register">
+              <span
+                >Si no tienes una cuenta
+                <a routerLink="/register">regístrate</a></span
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
