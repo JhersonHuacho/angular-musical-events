@@ -1,1 +1,45 @@
-<p>genres works!</p>
+<div class="container-app-event">
+  <div class="title-event">
+    <h6>Género</h6>
+  </div>
+  <div class="container">
+    <div class="tab-group">
+      <mat-tab-group>
+        <mat-tab label="Registro" class="tab-registro">
+          <div class="form-registro">
+            <div class="form-registro-campos">
+              <form [formGroup]="genresForm" (ngSubmit)="onSubmit()">
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Descripción</mat-label>
+                    <input type="text" matInput formControlName="description">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="state">
+                      @for (state of status; track state) {
+                        <mat-option [value]="state.value">{{state.viewValue}}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button type="submit" mat-raised-button color="primary">Guardar</button>
+                  <button type="button" mat-raised-button color="accent" class="button-limpiar">Limpiar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Listado">
+          Content 2
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+
+
