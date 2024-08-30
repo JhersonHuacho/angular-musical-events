@@ -62,5 +62,34 @@ export const routes: Routes = [
         loadComponent: () => import('./admin/genres/genres.component').then(m => m.GenresComponent)
       }
     ]
-  }
+  },
+  {
+    path: 'customer',
+    pathMatch: 'prefix',
+    loadComponent: () =>
+      import('./customer/customer.component').then((m) => m.CustomerComponent),
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'my-purchases',
+      },
+      {
+        path: 'my-purchases',
+        pathMatch: 'full',
+        loadComponent: () =>
+          import('./customer/my-purchases/my-purchases.component').then(
+            (m) => m.MyPurchasesComponent
+          ),
+      },
+      {
+        path: 'change-password',
+        pathMatch: 'full',
+        loadComponent: () =>
+          import('./customer/change-password/change-password.component').then(
+            (m) => m.ChangePasswordComponent
+          ),
+      },
+    ],
+  },
 ];

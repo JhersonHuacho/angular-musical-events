@@ -12,10 +12,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AsyncPipe } from '@angular/common';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-sales',
   standalone: true,
+  providers: [provideNativeDateAdapter()],
   imports: [
     MatTableModule,
     MatPaginatorModule,
