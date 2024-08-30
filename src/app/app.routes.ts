@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { isNotLogged } from './app.guard';
+import { isAdmin, isCustomer, isLogged, isNotLogged } from './app.guard';
 
 export const routes: Routes = [
   {
@@ -19,12 +19,14 @@ export const routes: Routes = [
   {
     path: 'register',
     pathMatch: 'full',
-    loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent)
+    loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent),
+    canActivate: [isNotLogged],
   },
   {
     path: 'forgot-password',
     pathMatch: 'full',
-    loadComponent: () => import('./forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
+    loadComponent: () => import('./forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent),
+    canActivate: [isNotLogged],
   },
   {
     path: 'event-detail/:id',
@@ -40,6 +42,7 @@ export const routes: Routes = [
     path: 'admin',
     pathMatch: 'prefix',
     loadComponent: () => import('./admin/admin.component').then(m => m.AdminComponent),
+    canActivate: [isLogged, isAdmin],
     children: [
       {
         path: '',
@@ -68,6 +71,7 @@ export const routes: Routes = [
     pathMatch: 'prefix',
     loadComponent: () =>
       import('./customer/customer.component').then((m) => m.CustomerComponent),
+    canActivate: [isLogged, isCustomer],
     children: [
       {
         path: '',

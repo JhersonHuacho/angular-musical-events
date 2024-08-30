@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { SimpleHeaderComponent } from '../shared/components/simple-header/simple-header.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,7 +18,8 @@ import { NotificationsService } from 'angular2-notifications';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
