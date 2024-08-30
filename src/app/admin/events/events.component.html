@@ -1,1 +1,92 @@
-<p>events works!</p>
+<div class="container-app-event">
+  <div class="title-event">
+    <h6>Eventos</h6>
+  </div>
+  <div class="container">
+    <div class="tab-group">
+      <mat-tab-group>
+        <mat-tab label="Registro" class="tab-registro">
+          <div class="form-registro">
+            <div class="form-registro-campos">
+              <form [formGroup]="registerEventForm" (ngSubmit)="onSubmit()">
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Título</mat-label>
+                    <input type="text" matInput formControlName="title">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Descripción</mat-label>
+                    <input matInput formControlName="description">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Fecha</mat-label>
+                    <input matInput formControlName="date">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Hora</mat-label>
+                    <input matInput formControlName="hour">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Cantidad de entradas</mat-label>
+                    <input matInput formControlName="numberOfEntries">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Précio</mat-label>
+                    <input matInput formControlName="price">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Género</mat-label>
+                    <mat-select formControlName="gender">
+                      @for (food of foods; track food) {
+                        <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="state">
+                      @for (food of foods; track food) {
+                        <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button type="submit" mat-raised-button color="primary">Guardar</button>
+                  <button type="button" mat-raised-button color="accent" class="button-limpiar">Limpiar</button>
+                </div>
+              </form>
+            </div>
+            <div class="form-registro-image">
+              <div class="form-registro-image-content">
+                <img src="https://placehold.co/200x250" alt="">
+              </div>
+              <div class="form-registro-image-button">
+                <button mat-raised-button class="button-limpiar">Imagen</button>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Listado">
+          Content 2
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+
+
