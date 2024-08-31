@@ -47,8 +47,10 @@ export interface ConcertPostApiRequest {
   dateEvent: string;
   timeEvent: string;
   imageUrl: string;
+  imageName: string;
+  imageFile: File;
   ticketsQuantity: number;
-  status: string;
+  status: boolean;
 }
 // GET
 export interface ConcertGetApiResponse {
@@ -57,7 +59,7 @@ export interface ConcertGetApiResponse {
   errorMessage: string;
 }
 export interface ConcertGetApiResponseDto {
-  id: number,
+  id?: number,
   title: string,
   description: string,
   place: string,
@@ -69,5 +71,5 @@ export interface ConcertGetApiResponseDto {
   imageUrl: string,
   ticketsQuantity: number,
   finalized: boolean,
-  status: string
+  status: boolean
 }

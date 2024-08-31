@@ -7,15 +7,16 @@
   display: flex;
   justify-content: center;
 }
-.example-stretched-tabs {
-  max-width: 900px;
-}
+/* .example-stretched-tabs {
+  max-width: 1200px;
+} */
 .title-event {
   max-width: 900px;
 }
 
 .tab-group {
-  width: 800px;
+  width: 1200px;
+  height: 900px;
 }
 .tab-registro {
   width: 800px;
@@ -27,8 +28,10 @@
 
 .form-registro {
   padding: 20px;
-  display: flex;
-  justify-content: space-around;
+  & form {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 .button-limpiar {
@@ -45,6 +48,9 @@ mat-tab-header
 */
 
 /* Tab 2*/
+.full-width {
+  width: 100%;
+}
 .content-list-concert {
   padding: 20px;
 }
