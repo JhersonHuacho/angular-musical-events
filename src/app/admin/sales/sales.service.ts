@@ -24,16 +24,19 @@ export class SalesService {
       .getDate()
       .toString()
       .padStart(2, '0')}-${dateStart.getFullYear()}`;
+    const formattedDateStart = new Date(dateStartFormatted).toLocaleDateString('es-PE');
+
     const dateEndFormatted = `${(dateEnd.getMonth() + 1)
       .toString()
       .padStart(2, '0')}-${dateEnd
       .getDate()
       .toString()
       .padStart(2, '0')}-${dateEnd.getFullYear()}`;
+    const formattedDateEnd = new Date(dateEndFormatted).toLocaleDateString('es-PE');
 
     const apiUrl = new URL(this.baseUrl + '/api/sales/ListSalesByDate');
-    apiUrl.searchParams.append('DateStart', dateStartFormatted);
-    apiUrl.searchParams.append('DateEnd', dateEndFormatted);
+    apiUrl.searchParams.append('DateStart', formattedDateStart);
+    apiUrl.searchParams.append('DateEnd', formattedDateEnd);
     apiUrl.searchParams.append('Page', page.toString());
     apiUrl.searchParams.append('RecordsPerPage', recordsPerPage.toString());
 
