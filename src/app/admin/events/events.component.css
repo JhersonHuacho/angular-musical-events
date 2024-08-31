@@ -21,9 +21,9 @@
   width: 800px;
 }
 
-.container-mat-tab-group {
+/* .container-mat-tab-group {
   padding: 20px;
-}
+} */
 
 .form-registro {
   padding: 20px;
@@ -43,3 +43,8 @@ Para agregar color al header del TAB
 se agregó el archivo style.css
 mat-tab-header
 */
+
+/* Tab 2*/
+.content-list-concert {
+  padding: 20px;
+}

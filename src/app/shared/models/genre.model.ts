@@ -17,7 +17,13 @@ export interface GenrePostApiResponse {
 }
 
 export interface GenreGetApiResponse {
-  data: Genre;
+  data: GenreResponse[];
   success: boolean;
   errorMessage: string;
+}
+
+export interface GenreResponse {
+  id: number,
+  name: string,
+  status: boolean
 }

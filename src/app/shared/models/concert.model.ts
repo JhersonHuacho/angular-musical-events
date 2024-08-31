@@ -29,3 +29,45 @@ export const emptyConcert: Concert = {
   finalized: false,
   status: ''
 }
+
+//---- API
+
+// POST
+export interface ConcertPostApiResponse {
+  data: number;
+  success: boolean;
+  errorMessage: string;
+}
+export interface ConcertPostApiRequest {
+  title: string;
+  description: string;
+  place: string;
+  unitPrice: number;
+  genreId: number;
+  dateEvent: string;
+  timeEvent: string;
+  imageUrl: string;
+  ticketsQuantity: number;
+  status: string;
+}
+// GET
+export interface ConcertGetApiResponse {
+  data: ConcertGetApiResponseDto[];
+  success: boolean;
+  errorMessage: string;
+}
+export interface ConcertGetApiResponseDto {
+  id: number,
+  title: string,
+  description: string,
+  place: string,
+  unitPrice: number,
+  genreId: number,
+  genre: string,
+  dateEvent: string,
+  timeEvent: string,
+  imageUrl: string,
+  ticketsQuantity: number,
+  finalized: boolean,
+  status: string
+}
