@@ -8,7 +8,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class HomeService {
-  url = environment.baseUrl + '/api/v2/pokemon/ditto';
+  //url = environment.baseUrl + '/api/v2/pokemon/ditto';
+  url = environment.baseUrl + '/api/Home';
   http = inject(HttpClient);
 
   getData() {
