@@ -2,7 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { NotificationsService } from 'angular2-notifications';
 import { catchError, Observable, of } from 'rxjs';
-import { ForgotPasswordApiResponse, ForgotPasswordRequestBody, LoginApiResponse, LoginRequestBody, RegisterApiResponse, RegisterRequestBody } from '../models/auth.mode';
+import { ChangePasswordApiResponse, ForgotPasswordApiResponse, ForgotPasswordRequestBody, LoginApiResponse, LoginRequestBody, RegisterApiResponse, RegisterRequestBody } from '../models/auth.mode';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
@@ -66,6 +66,21 @@ export class AuthService {
     return this.http.post<ForgotPasswordApiResponse>(apiUrl, body).pipe(
       catchError((httpErrorResponse: HttpErrorResponse) => {
         const errorResponse: ForgotPasswordApiResponse = {
+          success: false,
+          errorMessage:
+            httpErrorResponse.error?.errorMessage || 'Unknown error',
+        };
+        return of(errorResponse);
+      })
+    );
+  }
+
+  changePassword(oldPassword: string, newPassword: string): Observable<ChangePasswordApiResponse> {
+    const apiUrl = this.baseUrl + '/api/users/ChangePassword';
+    const body = { oldPassword, newPassword };
+    return this.http.post<ChangePasswordApiResponse>(apiUrl, body).pipe(
+      catchError((httpErrorResponse: HttpErrorResponse) => {
+        const errorResponse: ChangePasswordApiResponse = {
           success: false,
           errorMessage:
             httpErrorResponse.error?.errorMessage || 'Unknown error',

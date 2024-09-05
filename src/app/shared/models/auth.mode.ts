@@ -42,3 +42,10 @@ export interface ForgotPasswordApiResponse {
 export interface ForgotPasswordRequestBody {
   email: string;
 }
+
+
+// ChangePassword
+export interface ChangePasswordApiResponse {
+  success: boolean;
+  errorMessage: string;
+}
