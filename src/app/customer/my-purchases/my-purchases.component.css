@@ -1,0 +1,30 @@
+.container {
+  /* border: 1px solid #ccc; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.purchases {
+  width: 900px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* border: 1px solid red; */
+}
+
+.purchases-body {
+  background-color: var(--secondary-color);
+  padding: 40px;
+
+}
+.mat-mdc-table {
+  background-color: grey;
+}
+
+.mat-mdc-paginator {
+  background-color: grey;
+}
+
+.full-width {
+  width: 100%;
+}
