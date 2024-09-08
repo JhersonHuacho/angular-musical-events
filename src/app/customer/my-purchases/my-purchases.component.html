@@ -15,43 +15,45 @@
           <table mat-table [dataSource]="dataSource">
 
             <!-- Position Column -->
-            <ng-container matColumnDef="position">
+            <ng-container matColumnDef="saleId">
               <th mat-header-cell *matHeaderCellDef> Nro. transacción </th>
-              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.saleId}} </td>
             </ng-container>
 
             <!-- Name Column -->
-            <ng-container matColumnDef="name">
+            <ng-container matColumnDef="title">
               <th mat-header-cell *matHeaderCellDef> Evento </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.title}} </td>
             </ng-container>
 
             <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
+            <ng-container matColumnDef="quantity">
               <th mat-header-cell *matHeaderCellDef> Nro. Entradas </th>
-              <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
             </ng-container>
 
             <!-- Symbol Column -->
-            <ng-container matColumnDef="symbol">
+            <ng-container matColumnDef="total">
               <th mat-header-cell *matHeaderCellDef> Pago </th>
-              <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.total}} </td>
             </ng-container>
 
-            <!-- <ng-container matColumnDef="symbol">
+            <ng-container matColumnDef="saleDate">
               <th mat-header-cell *matHeaderCellDef> Fecha de compra </th>
-              <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.saleDate}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="symbol">
+            <ng-container matColumnDef="dateEvent">
               <th mat-header-cell *matHeaderCellDef> Fecha de venta </th>
-              <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.dateEvent}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="symbol">
+            <ng-container matColumnDef="ticket">
               <th mat-header-cell *matHeaderCellDef> Ticket </th>
-              <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-            </ng-container> -->
+              <td mat-cell *matCellDef="let element">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="confirmation_number"></mat-icon>
+              </td>
+            </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -15,3 +15,22 @@ export interface FormattedDataModel {
   saleDate: string;
   genre: string;
 }
+// get
+export interface SalesCustomerApiResponse {
+  data: SaleResponseDto[];
+  success: boolean;
+  errorMessage: string;
+}
+export interface SaleResponseDto {
+  saleId: number
+  dateEvent: string
+  timeEvent: string
+  genre: string
+  imageUrl: string
+  title: string
+  operationNumber: string
+  fullName: string
+  quantity: number
+  saleDate: string
+  total: number
+}

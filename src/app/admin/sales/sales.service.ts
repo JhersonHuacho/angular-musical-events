@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { SalesApiResponse } from './sales.model';
+import { SalesApiResponse, SalesCustomerApiResponse } from './sales.model';
 
 @Injectable({
   providedIn: 'root',
@@ -41,5 +41,20 @@ export class SalesService {
     apiUrl.searchParams.append('RecordsPerPage', recordsPerPage.toString());
 
     return this.http.get<SalesApiResponse>(apiUrl.toString());
+  }
+
+  getSalesByCustomer(
+    email: string,
+    title: string,
+    page: number,
+    recordsPerPage: number): Observable<SalesCustomerApiResponse> {
+    const apiUrl = new URL(this.baseUrl + '/api/sales/ListSales');
+    apiUrl.searchParams.append('Email', email);
+    apiUrl.searchParams.append('Title', title);
+    apiUrl.searchParams.append('Page', page.toString());
+    apiUrl.searchParams.append('RecordsPerPage', recordsPerPage.toString());
+
+    return this.http.get<SalesCustomerApiResponse>(apiUrl.toString());
+
   }
 }
