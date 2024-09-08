@@ -45,7 +45,7 @@ export class SalesComponent implements OnInit, AfterViewInit {
   ];
   initialData: FormattedDataModel[] = [];
   dataSource = new MatTableDataSource<FormattedDataModel>();
-  salesLoaded = false;
+  salesLoaded = true;
   genres: string[] = [];
   events: string[] = [];
 
@@ -125,12 +125,12 @@ export class SalesComponent implements OnInit, AfterViewInit {
   }
 
   loadSales() {
-    this.salesLoaded = false;
+    // this.salesLoaded = false;
     const { dateFrom, dateTo } = this.filterFormGroup.controls;
     this.salesService
       .getSales(dateFrom.value!, dateTo.value!, 1, 999)
       .subscribe((response) => {
-        this.salesLoaded = true;
+        // this.salesLoaded = true;
         this.handleSalesResponse(response.data);
       });
   }

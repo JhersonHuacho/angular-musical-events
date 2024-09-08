@@ -7,3 +7,11 @@
   --mdc-outlined-text-field-hover-outline-color: var(--primary-color);
   --mdc-outlined-text-field-hover-label-text-color: white;
 }
+
+.mat-mdc-paginator-page-size-label,
+.mat-mdc-paginator-range-label {
+  color: white;
+}
+.mat-mdc-paginator-icon {
+  color: var(--primary-color);
+}
